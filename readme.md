@@ -1,7 +1,7 @@
 # Swagger example - Generating new client at build time
 
 This repo serves as an example of generating a new client for a Web API 
-at build time of the service. WebApplication1 is the service and W
+at build time of the service. WebApplication1 is the service and
 WebApplication2 is the consumer. 
 
 In WebApplication1.csproj, this configuration creates a new Swagger spec
@@ -24,5 +24,5 @@ In WebApplication2.csproj, a reference to the Swagger spec exists as normal.
     </ItemGroup>
 
 # How to run 
-To run this example, clone the repo locally and run both projects at once. No 
+To run this example, clone the repository locally and run both projects at once. No 
 external dependencies exist. 

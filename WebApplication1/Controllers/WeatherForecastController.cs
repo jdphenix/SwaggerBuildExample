@@ -20,7 +20,7 @@ namespace WebApplication1.Controllers
 
             return NotFound(new ProblemDetails
             {
-                Type = "https://globalhealth.com/no-such-city", 
+                Type = "https://example.com/no-such-city", 
                 Detail = "No such city was found.", 
                 Status = 404, 
                 Title = "No such city was found."

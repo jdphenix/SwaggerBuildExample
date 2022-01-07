@@ -4,21 +4,6 @@ using WebApplication2.Models;
 
 namespace WebApplication2.Controllers
 {
-    public static class TaskExtensions
-    {
-        public async Task<T> UnwrapError<T>(this Task<T> task)
-        {
-            try
-            {
-                var result = await task;
-            }
-            catch (ApiException<ProblemDetails> ex)
-            {
-                
-            }
-        }
-    }
-
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -32,8 +17,12 @@ namespace WebApplication2.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var result = await _client.WeatherForecastAsync().UnwrapError();
-            return View();
+            var result = await _client.WeatherForecastAsync().UnwrapError(_logger);
+            return result.Value switch
+            {
+                { } => View(result.Value),
+                null => NotFound(result.Error)
+            };
         }
 
         public IActionResult Privacy()
